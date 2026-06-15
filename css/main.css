@@ -125,7 +125,8 @@ main {
   overflow: hidden;
   padding: 72px 0 28px;
   background:
-    linear-gradient(90deg, rgba(23, 47, 71, 0.94) 0%, rgba(23, 47, 71, 0.78) 48%, rgba(23, 47, 71, 0.52) 100%),
+    linear-gradient(90deg, rgba(23, 47, 71, 0.94) 0%, rgba(23, 47, 71, 0.8) 48%, rgba(23, 47, 71, 0.56) 100%),
+    url("../images/hero-clinic.png") center / cover no-repeat,
     linear-gradient(135deg, #193149 0%, #2e6d6a 54%, #d7e2df 100%);
 }
 
@@ -253,6 +254,100 @@ main {
 
 .treatment-detail-card:hover .treatment-detail-image::before {
   transform: scale(1.04);
+}
+
+.treatment-image.image-implant,
+.treatment-detail-image.image-implant {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.14)),
+    url("../images/treatment-implant.png");
+}
+
+.treatment-image.image-orthodontics,
+.treatment-detail-image.image-orthodontics {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.14)),
+    url("../images/treatment-orthodontics.png");
+}
+
+.treatment-image.image-aesthetic,
+.treatment-detail-image.image-aesthetic {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.14)),
+    url("../images/treatment-aesthetic.png");
+}
+
+.treatment-image.image-cavity,
+.treatment-detail-image.image-cavity {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.14)),
+    url("../images/treatment-cavity.png");
+}
+
+.treatment-detail-image.image-root-canal {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.14)),
+    url("../images/treatment-root-canal.png");
+}
+
+.treatment-image.image-gum-care,
+.treatment-detail-image.image-gum-care {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.14)),
+    url("../images/treatment-gum-care.png");
+}
+
+.treatment-image.image-scaling,
+.treatment-detail-image.image-scaling {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.14)),
+    url("../images/treatment-scaling.png");
+}
+
+.treatment-detail-image.image-wisdom-tooth {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.14)),
+    url("../images/treatment-wisdom-tooth.png");
+}
+
+.treatment-image[class*="image-"],
+.treatment-detail-image[class*="image-"] {
+  background-size: 100%, cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  transition: background-size var(--transition-base);
+}
+
+.treatment-image[class*="image-"]::before,
+.treatment-detail-image[class*="image-"]::before {
+  display: none;
+}
+
+.treatment-card:hover .treatment-image[class*="image-"],
+.treatment-detail-card:hover .treatment-detail-image[class*="image-"] {
+  background-size: 100%, 104%;
+}
+
+.doctor-photo.image-doctor-kim,
+.doctor-detail-photo.image-doctor-kim {
+  background-image: url("../images/doctor-kim-doyoon.png");
+}
+
+.doctor-photo.image-doctor-lee,
+.doctor-detail-photo.image-doctor-lee {
+  background-image: url("../images/doctor-lee-seoyeon.png");
+}
+
+.doctor-photo.image-doctor-park,
+.doctor-detail-photo.image-doctor-park {
+  background-image: url("../images/doctor-park-jihoon.png");
+}
+
+.doctor-photo[class*="image-doctor"],
+.doctor-detail-photo[class*="image-doctor"] {
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
 }
 
 .doctor-detail-content,
