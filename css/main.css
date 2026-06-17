@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   z-index: 1000;
-  background: rgba(255, 255, 255, 0.82);
+  background: rgba(255, 255, 255, 0.9);
   border-bottom: 1px solid var(--line);
   backdrop-filter: blur(18px);
   -webkit-backdrop-filter: blur(18px);
@@ -125,18 +125,54 @@ main {
   overflow: hidden;
   padding: 72px 0 28px;
   background:
-    linear-gradient(90deg, rgba(23, 47, 71, 0.94) 0%, rgba(23, 47, 71, 0.8) 48%, rgba(23, 47, 71, 0.56) 100%),
+    linear-gradient(90deg, rgba(23, 47, 71, 0.88) 0%, rgba(23, 47, 71, 0.62) 45%, rgba(23, 47, 71, 0.22) 100%),
     url("../images/hero-clinic.png") center / cover no-repeat,
     linear-gradient(135deg, #193149 0%, #2e6d6a 54%, #d7e2df 100%);
 }
 
 /* Subpage shared styles */
 .subpage-hero {
+  min-height: 360px;
+  display: flex;
+  align-items: end;
   padding: 92px 0 64px;
   color: var(--white);
   background:
-    linear-gradient(135deg, rgba(23, 47, 71, 0.96), rgba(29, 77, 82, 0.9)),
+    linear-gradient(90deg, rgba(23, 47, 71, 0.94), rgba(29, 77, 82, 0.78)),
     var(--navy);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.subpage-hero.about-hero {
+  background-image:
+    linear-gradient(90deg, rgba(23, 47, 71, 0.86), rgba(29, 77, 82, 0.34)),
+    url("../images/about-hero.png");
+}
+
+.subpage-hero.doctors-hero {
+  background-image:
+    linear-gradient(90deg, rgba(23, 47, 71, 0.86), rgba(29, 77, 82, 0.34)),
+    url("../images/doctors-hero.png");
+}
+
+.subpage-hero.treatments-hero {
+  background-image:
+    linear-gradient(90deg, rgba(23, 47, 71, 0.86), rgba(29, 77, 82, 0.34)),
+    url("../images/treatments-hero.png");
+}
+
+.subpage-hero.reservation-hero {
+  background-image:
+    linear-gradient(90deg, rgba(23, 47, 71, 0.86), rgba(29, 77, 82, 0.34)),
+    url("../images/reservation-hero.png");
+}
+
+.subpage-hero.location-hero {
+  background-image:
+    linear-gradient(90deg, rgba(23, 47, 71, 0.86), rgba(29, 77, 82, 0.34)),
+    url("../images/location-hero.png");
 }
 
 .subpage-hero .section-eyebrow,
@@ -318,6 +354,18 @@ main {
   transition: background-size var(--transition-base);
 }
 
+.treatment-image,
+.treatment-detail-image,
+.doctor-photo,
+.doctor-detail-photo,
+.case-image,
+.equipment-list article::before,
+.reservation-guide-card::before,
+.location-panel::before,
+.map-placeholder {
+  image-rendering: auto;
+}
+
 .treatment-image[class*="image-"]::before,
 .treatment-detail-image[class*="image-"]::before {
   display: none;
@@ -473,6 +521,17 @@ main {
   margin-top: 18px;
 }
 
+.reservation-guide-card::before {
+  content: "";
+  display: block;
+  aspect-ratio: 16 / 9;
+  margin-bottom: 22px;
+  border-radius: var(--radius-small);
+  background:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.1)),
+    url("../images/treatment-room.png") center / cover no-repeat;
+}
+
 .form-wide {
   grid-column: 1 / -1;
 }
@@ -525,7 +584,7 @@ main {
     radial-gradient(circle at 78% 28%, rgba(255, 255, 255, 0.34) 0 9%, transparent 22%),
     linear-gradient(135deg, transparent 0 42%, rgba(255, 255, 255, 0.16) 42% 58%, transparent 58%),
     linear-gradient(90deg, transparent 0 46%, rgba(232, 244, 239, 0.2) 46% 100%);
-  opacity: 0.9;
+  opacity: 0.45;
 }
 
 .hero-section::after {
@@ -569,8 +628,14 @@ main {
   max-width: 760px;
   margin-top: 18px;
   color: var(--white);
-  font-size: clamp(42px, 12vw, 64px);
+  font-size: clamp(38px, 11vw, 64px);
   line-height: 1.12;
+  overflow-wrap: anywhere;
+  word-break: normal;
+}
+
+.hero-title span {
+  display: inline;
 }
 
 .hero-description {
@@ -578,6 +643,7 @@ main {
   margin-top: 18px;
   color: rgba(255, 255, 255, 0.78);
   font-size: clamp(16px, 4vw, 20px);
+  overflow-wrap: anywhere;
 }
 
 .hero-actions {
@@ -689,7 +755,17 @@ main {
   background: var(--primary-dark);
 }
 
+.form-message {
+  grid-column: 1 / -1;
+  min-height: 22px;
+  margin: 0;
+  color: var(--primary-dark);
+  font-size: 14px;
+  font-weight: 700;
+}
+
 .clinic-section,
+.clinic-gallery-section,
 .treatment-section,
 .doctors-section,
 .before-after-section,
@@ -702,12 +778,134 @@ main {
 }
 
 .clinic-section,
+.clinic-gallery-section,
 .doctors-section,
 .equipment-section,
 .faq-section,
 .location-section {
   background: var(--bg-soft);
 }
+
+.home-equipment {
+  position: relative;
+  overflow: hidden;
+  background:
+    linear-gradient(180deg, var(--bg-soft) 0%, #ffffff 44%, var(--bg-soft) 100%);
+}
+
+.clinic-content {
+  position: relative;
+  overflow: hidden;
+  min-height: 430px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: 24px;
+  border-radius: var(--radius-medium);
+  color: var(--white);
+  background:
+    linear-gradient(180deg, rgba(23, 47, 71, 0.03), rgba(23, 47, 71, 0.82)),
+    url("../images/clinic-lobby.png") center / cover no-repeat;
+  box-shadow: var(--shadow-soft);
+}
+
+.clinic-content p,
+.clinic-content .feature-list li {
+  color: var(--white);
+}
+
+.clinic-content .feature-list li {
+  border-left-color: var(--accent);
+  background: rgba(255, 255, 255, 0.14);
+  backdrop-filter: blur(10px);
+}
+
+.clinic-gallery {
+  position: relative;
+}
+
+.clinic-gallery-section .container {
+  max-width: none;
+  padding-left: clamp(16px, 2vw, 32px);
+  padding-right: clamp(16px, 2vw, 32px);
+}
+
+.gallery-header {
+  max-width: var(--container-width);
+  margin: 0 auto 30px;
+}
+
+.gallery-header .section-heading {
+  margin-bottom: 0;
+}
+
+.gallery-header .section-heading p:not(.section-eyebrow) {
+  max-width: 520px;
+  margin-top: 12px;
+}
+
+.gallery-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.gallery-card {
+  position: relative;
+  min-width: 0;
+  overflow: hidden;
+  border: 0;
+  border-radius: var(--radius-medium);
+  background: var(--navy);
+  box-shadow: 0 24px 64px rgba(15, 45, 58, 0.12);
+  transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.gallery-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 34px 82px rgba(15, 45, 58, 0.16);
+}
+
+.gallery-card img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 5 / 4;
+  object-fit: cover;
+  object-position: center;
+  transition: transform 0.5s ease;
+}
+
+.gallery-card:hover img {
+  transform: scale(1.03);
+}
+
+.gallery-card figcaption {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 72px;
+  padding: 18px;
+  color: var(--white);
+  background: linear-gradient(180deg, transparent, rgba(12, 28, 43, 0.82));
+  font-weight: 800;
+}
+
+.gallery-card figcaption span {
+  color: var(--accent);
+  font-size: 12px;
+  text-transform: uppercase;
+}
+
+.gallery-card figcaption strong {
+  color: var(--white);
+  font-size: 18px;
+}
+
 
 .feature-list {
   display: grid;
@@ -723,7 +921,7 @@ main {
 }
 
 .doctor-card,
-.review-card,
+.review-slide,
 .equipment-list article {
   padding: 22px;
   border: 1px solid var(--line);
@@ -734,7 +932,7 @@ main {
 }
 
 .doctor-card:hover,
-.review-card:hover,
+.review-slide:hover,
 .equipment-list article:hover {
   transform: translateY(-6px);
   border-color: rgba(184, 155, 99, 0.3);
@@ -795,7 +993,7 @@ main {
 }
 
 .treatment-card p,
-.review-card p,
+.review-slide p,
 .equipment-list p {
   margin-top: 10px;
 }
@@ -878,12 +1076,54 @@ main {
   background:
     linear-gradient(145deg, rgba(23, 47, 71, 0.08), rgba(255, 255, 255, 0.2)),
     var(--secondary);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
 .case-image.after {
   background:
     linear-gradient(145deg, rgba(184, 155, 99, 0.15), rgba(255, 255, 255, 0.25)),
     var(--accent-soft);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.case-card:nth-child(1) .case-image.before {
+  background-image:
+    linear-gradient(145deg, rgba(23, 47, 71, 0.08), rgba(255, 255, 255, 0.1)),
+    url("../images/case-cosmetic-before.png");
+}
+
+.case-card:nth-child(1) .case-image.after {
+  background-image:
+    linear-gradient(145deg, rgba(184, 155, 99, 0.08), rgba(255, 255, 255, 0.1)),
+    url("../images/case-cosmetic-after.png");
+}
+
+.case-card:nth-child(2) .case-image.before {
+  background-image:
+    linear-gradient(145deg, rgba(23, 47, 71, 0.08), rgba(255, 255, 255, 0.1)),
+    url("../images/case-whitening-before.png");
+}
+
+.case-card:nth-child(2) .case-image.after {
+  background-image:
+    linear-gradient(145deg, rgba(184, 155, 99, 0.08), rgba(255, 255, 255, 0.1)),
+    url("../images/case-whitening-after.png");
+}
+
+.case-card:nth-child(3) .case-image.before {
+  background-image:
+    linear-gradient(145deg, rgba(23, 47, 71, 0.08), rgba(255, 255, 255, 0.1)),
+    url("../images/case-resin-before.png");
+}
+
+.case-card:nth-child(3) .case-image.after {
+  background-image:
+    linear-gradient(145deg, rgba(184, 155, 99, 0.08), rgba(255, 255, 255, 0.1)),
+    url("../images/case-resin-after.png");
 }
 
 .case-image span {
@@ -893,7 +1133,7 @@ main {
   padding: 0 9px;
   border-radius: 999px;
   color: var(--navy);
-  background: rgba(255, 255, 255, 0.78);
+  background: rgba(255, 255, 255, 0.88);
   font-size: 12px;
   font-weight: 800;
   letter-spacing: 0;
@@ -928,12 +1168,153 @@ main {
   font-size: 14px;
 }
 
-.equipment-list {
+.equipment-showcase {
+  display: grid;
+  gap: 34px;
+  max-width: 1320px;
+}
+
+.equipment-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 760px;
+}
+
+.equipment-copy p:not(.section-eyebrow) {
+  margin-top: 16px;
+  font-size: 17px;
+}
+
+.equipment-metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+  margin-top: 28px;
+  max-width: 760px;
+}
+
+.equipment-metrics span {
+  min-width: 0;
+  padding: 18px 20px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-small);
+  color: var(--subtext);
+  background: rgba(255, 255, 255, 0.86);
+  font-size: 13px;
+  font-weight: 700;
+  box-shadow: 0 18px 48px rgba(15, 45, 58, 0.06);
+}
+
+.equipment-metrics strong {
+  display: block;
+  margin-bottom: 4px;
+  color: var(--primary-dark);
+  font-size: 18px;
+  line-height: 1.2;
+}
+
+.equipment-panel {
+  position: relative;
+  z-index: 0;
+  display: grid;
+  gap: 18px;
+  padding: 28px;
+  border-radius: var(--radius-large);
+  background:
+    linear-gradient(180deg, rgba(232, 244, 239, 0.82), rgba(255, 255, 255, 0.9));
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.8);
+}
+
+.equipment-feature {
+  display: grid;
+  gap: 18px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-medium);
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: var(--shadow-soft);
+  transition: transform var(--transition-base), box-shadow var(--transition-base), border-color var(--transition-base);
+}
+
+.equipment-feature:hover {
+  transform: translateY(-6px);
+  border-color: rgba(47, 119, 117, 0.22);
+  box-shadow: var(--shadow-hover);
+}
+
+.equipment-feature-image {
+  min-height: 280px;
+  border-radius: var(--radius-small);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.equipment-feature .image-ct {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.05), rgba(47, 119, 117, 0.08)),
+    url("../images/dental-ct-scanner.png");
+}
+
+.equipment-feature .image-scanner {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.05), rgba(47, 119, 117, 0.08)),
+    url("../images/intraoral-scanner.png");
+}
+
+.equipment-feature .image-sterilization {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.05), rgba(47, 119, 117, 0.08)),
+    url("../images/sterilization-room.png");
+}
+
+.equipment-feature > div:last-child {
+  padding: 4px 6px 10px;
+}
+
+.equipment-feature span {
+  display: inline-flex;
+  margin-bottom: 10px;
+  color: var(--accent);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.equipment-feature p {
+  margin-top: 12px;
+  font-size: 17px;
+}
+
+.about-facilities .equipment-list {
   display: grid;
   gap: 14px;
 }
 
-.review-card span {
+.about-facilities .equipment-list article::before {
+  content: "";
+  display: block;
+  aspect-ratio: 16 / 9;
+  margin: -10px -10px 18px;
+  border-radius: var(--radius-small);
+  background:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.1)),
+    url("../images/consultation-room.png") center / cover no-repeat;
+}
+
+.about-facilities .equipment-list article:nth-child(2)::before {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.1)),
+    url("../images/intraoral-scanner.png");
+}
+
+.about-facilities .equipment-list article:nth-child(3)::before {
+  background-image:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.1)),
+    url("../images/sterilization-room.png");
+}
+
+.review-slide span {
   display: block;
   margin-top: 18px;
   color: var(--primary);
@@ -941,82 +1322,103 @@ main {
   font-weight: 700;
 }
 
-.review-slider {
-  position: relative;
-}
-
-.review-track {
-  position: relative;
-  min-height: 230px;
+.review-section {
   overflow: hidden;
 }
 
-.review-slide {
+.review-section .container {
+  max-width: none;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.review-section .section-heading {
+  max-width: var(--container-width);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: var(--container-padding);
+  padding-right: var(--container-padding);
+}
+
+.review-marquee {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0 22px;
+}
+
+.review-marquee::before,
+.review-marquee::after {
+  content: "";
   position: absolute;
-  inset: 0;
-  opacity: 0;
-  transform: translateX(16px);
+  top: 0;
+  bottom: 0;
+  z-index: 2;
+  width: min(12vw, 150px);
   pointer-events: none;
-  transition: opacity 0.45s ease, transform 0.45s ease;
 }
 
-.review-slide.is-active {
-  opacity: 1;
-  transform: translateX(0);
-  pointer-events: auto;
+.review-marquee::before {
+  left: 0;
+  background: linear-gradient(90deg, var(--bg), transparent);
 }
 
-.review-slide .review-card {
+.review-marquee::after {
+  right: 0;
+  background: linear-gradient(270deg, var(--bg), transparent);
+}
+
+.review-track {
+  width: max-content;
+  display: flex;
+  gap: 18px;
+  animation: reviewMarquee 42s linear infinite;
+  will-change: transform;
+}
+
+.review-marquee:hover .review-track {
+  animation-play-state: paused;
+}
+
+.review-slide {
+  width: min(430px, 84vw);
   min-height: 230px;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
-.review-slider-controls {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 12px;
-  margin-top: 18px;
+.review-slide::before {
+  content: "“";
+  margin-bottom: 12px;
+  color: var(--accent);
+  font-size: 38px;
+  line-height: 0.7;
+  font-weight: 800;
 }
 
-.slider-button {
-  min-width: 56px;
-  height: 36px;
-  padding: 0 12px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius-small);
-  color: var(--navy);
-  font-size: 13px;
-  font-weight: 700;
-  background: var(--bg);
-  transition: transform var(--transition-base), box-shadow var(--transition-base), background var(--transition-base);
+@keyframes reviewMarquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(calc(-50% - 9px));
+  }
 }
 
-.slider-button:hover {
-  transform: translateY(-2px);
-  background: var(--secondary);
-  box-shadow: var(--shadow-soft);
-}
+@media (prefers-reduced-motion: reduce) {
+  .review-track {
+    width: auto;
+    overflow-x: auto;
+    animation: none;
+    scroll-snap-type: inline mandatory;
+  }
 
-.slider-dots {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-}
-
-.slider-dot {
-  width: 9px;
-  height: 9px;
-  padding: 0;
-  border-radius: 50%;
-  background: var(--line);
-}
-
-.slider-dot.is-active {
-  background: var(--primary);
+  .review-slide {
+    flex: 0 0 min(380px, 82vw);
+    scroll-snap-align: start;
+  }
 }
 
 .faq-list {
@@ -1150,6 +1552,7 @@ main {
   z-index: 900;
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  width: 100%;
   border-top: 1px solid var(--line);
   background: rgba(255, 255, 255, 0.96);
   box-shadow: 0 -12px 28px rgba(23, 47, 71, 0.1);
@@ -1158,6 +1561,7 @@ main {
 .fixed-cta-button {
   min-height: 64px;
   display: inline-flex;
+  min-width: 0;
   flex-direction: column;
   align-items: center;
   justify-content: center;
@@ -1193,8 +1597,20 @@ main {
   gap: 18px;
 }
 
+.location-panel::before {
+  content: "";
+  display: block;
+  aspect-ratio: 16 / 9;
+  border-radius: var(--radius-medium);
+  background:
+    linear-gradient(135deg, rgba(23, 47, 71, 0.08), rgba(47, 119, 117, 0.1)),
+    url("../images/clinic-exterior.png") center / cover no-repeat;
+  box-shadow: var(--shadow-soft);
+}
+
 .map-placeholder {
   width: 100%;
+  min-height: 420px;
   aspect-ratio: 4 / 3;
   align-self: start;
   display: flex;
@@ -1204,17 +1620,9 @@ main {
   color: var(--primary-dark);
   font-weight: 800;
   background:
-    linear-gradient(135deg, rgba(47, 119, 117, 0.14), rgba(184, 155, 99, 0.16)),
+    linear-gradient(135deg, rgba(47, 119, 117, 0.08), rgba(184, 155, 99, 0.1)),
+    url("../images/location-map.png") center / cover no-repeat,
     var(--secondary);
-}
-
-.map-placeholder span {
-  display: inline-flex;
-  min-height: 36px;
-  align-items: center;
-  padding: 0 14px;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.72);
 }
 
 .location-info {

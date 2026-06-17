@@ -1,3 +1,5 @@
+document.documentElement.classList.add("js-enabled");
+
 const initHeader = () => {
   const siteHeader = document.querySelector("#siteHeader");
   const hamburgerButton = document.querySelector(".hamburger-button");
@@ -30,9 +32,15 @@ const initHeader = () => {
     });
   }
 
-  window.addEventListener("scroll", updateHeaderShadow);
+  window.addEventListener("scroll", updateHeaderShadow, { passive: true });
   window.addEventListener("resize", () => {
     if (window.innerWidth > 768) {
+      closeMobileMenu();
+    }
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
       closeMobileMenu();
     }
   });
@@ -127,6 +135,18 @@ const initReservationForms = () => {
   reservationForms.forEach((form) => {
     form.addEventListener("submit", (event) => {
       event.preventDefault();
+
+      if (!form.checkValidity()) {
+        form.reportValidity();
+        return;
+      }
+
+      const message = form.querySelector(".form-message");
+      if (message) {
+        message.textContent = "상담 요청이 접수되었습니다. 확인 후 연락드리겠습니다.";
+      }
+
+      form.reset();
     });
   });
 };
