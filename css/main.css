@@ -1436,12 +1436,12 @@ main {
 
 .faq-question {
   width: 100%;
-  min-height: 56px;
+  min-height: 72px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 16px;
-  padding: 16px 18px;
+  padding: 20px 24px;
   color: var(--navy);
   text-align: left;
   font-weight: 700;
@@ -1468,11 +1468,16 @@ main {
 }
 
 .faq-answer {
-  padding: 0 18px 18px;
+  margin: 0 24px 22px;
+  padding: 18px 0 0;
+  border-top: 1px solid rgba(47, 119, 117, 0.2);
 }
 
 .faq-answer p {
   margin: 0;
+  color: var(--subtext);
+  font-size: 16px;
+  line-height: 1.8;
 }
 
 .cta-section {
